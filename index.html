@@ -16,18 +16,41 @@
                 <a-mixin id="indigo" material="color: #5B5E97"></a-mixin>
                 <a-mixin id="square" geometry="height: 10; width: 10; depth: 0.1;"></a-mixin>
                 <a-mixin id="floor" rotation="-90 0 0"></a-mixin>
+                <a-mixin id="solid" material="side: double"></a-mixin>
                 
             </a-assets>
             
             <!-- Sky -->
             <a-sky color="#000" radius="200"></a-sky>
-            
-            <!-- Starting Platform -->
-            <a-plane height="10" 
-                     width="10" 
-                     rotation="-90 0 0"
-                     color="#5B5E97">
-            </a-plane>
+            <!-- Starting Room -->
+            <a-entity>
+                    <!-- Starting Platform -->
+                    <a-plane    mixin="indigo square solid"
+                                height="10" 
+                                width="10" 
+                                rotation="-90 0 0"
+                                color="#5B5E97">
+                    </a-plane>
+                    <!-- First Room Walls -->
+                    <a-entity id="#first-north-wall"
+                          mixin="indigo square solid"
+                          position="0 5 -5">
+                    </a-entity>            
+                    <a-entity id="#first-south-wall"
+                              mixin="indigo square solid"
+                              position="0 5 5">
+                    </a-entity>            
+                    <a-entity id="#first-east-wall"
+                              mixin="indigo square solid"
+                              position="5 5 0"
+                              rotation="0 90 0">
+                    </a-entity>            
+                    <a-entity id="#first-west-wall"
+                              mixin="indigo square solid"
+                              position="-5 5 0"
+                              rotation="0 90 0">
+                    </a-entity>
+            </a-entity>
             <!-- Second Platform -->
             <a-plane height="10" 
                      width="10" 
@@ -38,26 +61,14 @@
             
             <!-- Test Box -->
             <a-box  checkpoint="offset: 40 10 0"
-                    position="-4 1 -10"
+                    position="-4 1 -4"
                     height="2"
                     width="2"
                     depth="2"
                     event-set__1="_event: mouseenter;_target: #hud; text.value: Fly With Me"
                     event-set__2="_event: mouseleave;_target: #hud; text.value: ">
             </a-box>
-            <!-- Test Mixin -->
-            <a-entity mixin="indigo square floor"
-                      position="-10 1 -10">
-            </a-entity>            
-            <a-entity mixin="indigo square floor"
-                      position="-10 1 -10">
-            </a-entity>            
-            <a-entity mixin="indigo square floor"
-                      position="-10 1 -10">
-            </a-entity>            
-            <a-entity mixin="indigo square floor"
-                      position="-10 1 -10">
-            </a-entity>
+
             
             <!-- Lights -->
             <a-entity light="type: ambient; color: #FAF"></a-entity>
