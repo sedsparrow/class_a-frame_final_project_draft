@@ -34,38 +34,70 @@
                     <!-- First Room Walls -->
                     <a-entity id="#first-north-wall"
                           mixin="indigo square solid"
-                          position="0 5 -5">
+                          position="0 15 -5">
                     </a-entity>            
                     <a-entity id="#first-south-wall"
                               mixin="indigo square solid"
-                              position="0 5 5">
+                              position="0 15 5">
                     </a-entity>            
                     <a-entity id="#first-east-wall"
                               mixin="indigo square solid"
-                              position="5 5 0"
+                              position="5 15 0"
                               rotation="0 90 0">
                     </a-entity>            
                     <a-entity id="#first-west-wall"
                               mixin="indigo square solid"
-                              position="-5 5 0"
+                              position="-5 15 0"
                               rotation="0 90 0">
                     </a-entity>
             </a-entity>
-            <!-- Second Platform -->
-            <a-plane height="10" 
-                     width="10" 
-                     rotation="-90 0 0"
-                     color="#5B5E97"
-                     position="40 10 -5">
-            </a-plane>
+            <!-- Second Room -->
+            <a-entity>
+                <!-- Second Platform -->
+                <a-plane    mixin="indigo square solid"   
+                            height="10" 
+                            width="10" 
+                            rotation="-90 0 0"
+                            color="#5B5E97"
+                            position="0 10 0">
+                </a-plane>
+                <!-- Second Room Walls -->
+                <a-entity   id="#second-north-wall"
+                            mixin="indigo square solid"
+                            position="0 5 -5">
+                </a-entity>            
+                <a-entity   id="#second-south-wall"
+                            mixin="indigo square solid"
+                            position="0 5 5">
+                </a-entity>            
+                <a-entity   id="#second-east-wall"
+                            mixin="indigo square solid"
+                            position="5 5 0"
+                            rotation="0 90 0">
+                </a-entity>            
+                <a-entity   id="#second-west-wall"
+                            mixin="indigo square solid"
+                            position="-5 5 0"
+                            rotation="0 90 0">
+                </a-entity>
+                <!-- Second Room Ceiling -->
+                <a-plane    mixin="indigo square solid"   
+                            height="10" 
+                            width="10" 
+                            rotation="-90 0 0"
+                            color="#5B5E97"
+                            position="0 20 0">
+                </a-plane>
+            </a-entity>
             
             <!-- Test Box -->
-            <a-box  checkpoint="offset: 40 10 0"
+            <a-box  class="clickable"
+                    checkpoint="offset:4 10 4"
                     position="-4 1 -4"
                     height="2"
                     width="2"
                     depth="2"
-                    event-set__1="_event: mouseenter;_target: #hud; text.value: Fly With Me"
+                    event-set__1="_event: mouseenter;_target: #hud; text.value: Fly With Me; text.color: #000"
                     event-set__2="_event: mouseleave;_target: #hud; text.value: ">
             </a-box>
 
@@ -80,7 +112,8 @@
                         universal-controls="movementControls: checkpoint;"
                         checkpoint-controls="mode: animate; animateSpeed: 3.0;">
                 <!-- Cursor -->
-                <a-entity   cursor="fuse: true; fuseTimeout: 2000;"
+                <a-entity   raycaster="objects: .clickable"
+                            cursor="fuse: true; fuseTimeout: 2000;"
                             geometry="primitive: ring; radiusInner: 0.017; radiusOuter: 0.025;"
                             position="0 0 -1.5"
                             material="color: #ccc; shader: flat">
@@ -95,9 +128,10 @@
                     </a-animation>
                 </a-entity>
                 <!-- Heads Up Text -->
-                <a-entity id="hud"
-                          text="value: "
-                          position="0 0 -1.5">
+                <a-entity   id="hud"
+                            text="color: #000,value: "
+                            position="0 0 -1.5">
+                            
                 </a-entity>
             </a-entity>
             
