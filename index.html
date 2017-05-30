@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Final A-Frame Project</title>
+        <script src="js/aframe-v0.5.0.js"></script>
+        <script src="js/aframe-extras.js"></script>
+        <script src="js/aframe-event-set-component.js"></script>
+    </head>
+    
+    <body>
+        <a-scene>
+            <!-- Assets/Mixins -->
+            <a-assets>
+
+                
+                <a-mixin id="indigo" material="color: #5B5E97"></a-mixin>
+                <a-mixin id="square" geometry="height: 10; width: 10; depth: 0.1;"></a-mixin>
+                <a-mixin id="floor" rotation="-90 0 0"></a-mixin>
+                
+            </a-assets>
+            
+            <!-- Sky -->
+            <a-sky color="#000" radius="200"></a-sky>
+            
+            <!-- Starting Platform -->
+            <a-plane height="10" 
+                     width="10" 
+                     rotation="-90 0 0"
+                     color="#5B5E97">
+            </a-plane>
+            <!-- Second Platform -->
+            <a-plane height="10" 
+                     width="10" 
+                     rotation="-90 0 0"
+                     color="#5B5E97"
+                     position="40 10 -5">
+            </a-plane>
+            
+            <!-- Test Box -->
+            <a-box  checkpoint="offset: 40 10 0"
+                    position="-4 1 -10"
+                    height="2"
+                    width="2"
+                    depth="2"
+                    event-set__1="_event: mouseenter;_target: #hud; text.value: Fly With Me"
+                    event-set__2="_event: mouseleave;_target: #hud; text.value: ">
+            </a-box>
+            <!-- Test Mixin -->
+            <a-entity mixin="indigo square floor"
+                      position="-10 1 -10">
+            </a-entity>            
+            <a-entity mixin="indigo square floor"
+                      position="-10 1 -10">
+            </a-entity>            
+            <a-entity mixin="indigo square floor"
+                      position="-10 1 -10">
+            </a-entity>            
+            <a-entity mixin="indigo square floor"
+                      position="-10 1 -10">
+            </a-entity>
+            
+            <!-- Lights -->
+            <a-entity light="type: ambient; color: #FAF"></a-entity>
+            <a-entity light="type: directional; color: #e1fffc; intensity: 0.5" position="-0.5 1.5 1"></a-entity>
+            
+            <!-- Camera -->
+            <a-entity   camera="user-height:1.6"
+                        wasd-controls="acceleration:5; easing:1;"
+                        universal-controls="movementControls: checkpoint;"
+                        checkpoint-controls="mode: animate; animateSpeed: 3.0;">
+                <!-- Cursor -->
+                <a-entity   cursor="fuse: true; fuseTimeout: 2000;"
+                            geometry="primitive: ring; radiusInner: 0.017; radiusOuter: 0.025;"
+                            position="0 0 -1.5"
+                            material="color: #ccc; shader: flat">
+                    <!-- Animation When Clicking -->
+                    <a-animation    begin="cursor-fusing"
+                                    easing="ease-in" 
+                                    attribute="scale" 
+                                    fill="none" 
+                                    from="1 1 1" 
+                                    to="0.1 0.1 0.1"
+                                    dur="2000">
+                    </a-animation>
+                </a-entity>
+                <!-- Heads Up Text -->
+                <a-entity id="hud"
+                          text="value: "
+                          position="0 0 -1.5">
+                </a-entity>
+            </a-entity>
+            
+            <!-- Inspector -->
+           <script src="js/aframe-inspector.js"></script>
+        </a-scene>
+    </body>
+</html>
