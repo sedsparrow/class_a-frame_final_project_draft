@@ -5,6 +5,7 @@
         <script src="js/aframe-v0.5.0.js"></script>
         <script src="js/aframe-extras.js"></script>
         <script src="js/aframe-event-set-component.js"></script>
+        <!-- <script src="js/aframe-look-at-component.js"></script> -->
     </head>
     
     <body>
@@ -21,7 +22,9 @@
             
             <!-- Sky -->
             <a-sky color="#000" radius="200"></a-sky>
+             
             <!-- Starting Room -->
+            
             <a-entity>
                     <!-- Starting Platform -->
                     <a-plane    mixin="indigo square solid"
@@ -99,13 +102,82 @@
                     event-set__1="_event: mouseenter;_target: #hud; text.value: Fly With Me; text.color: #000"
                     event-set__2="_event: mouseleave;_target: #hud; text.value: ">
             </a-box>
+            <!-- Shoes Display -->
+            <a-cylinder  position="-1 10 -1"
+                         height="1"
+                         radius="1">            
+            </a-cylinder>
+            <!-- Left Shoe -->
+            <a-sphere   color="red"
+                        position="-0.6 10.5 -0.4"
+                        radius="0.1"
+                        phi-length="180"
+                        theta-length="90">
+            </a-sphere>
+            <a-cylinder color="blue"
+                        position="-0.6 10.5 -0.5"
+                        radius="0.1"
+                        height="0.2"
+                        rotation="-90 0 0 ">
+            </a-cylinder>
+            <a-cylinder color="green"
+                        position="-0.6 10.5 -0.6"
+                        radius="0.1"
+                        height="0.3"
+                        rotation="0 0 0 ">
+            </a-cylinder>   
+            
+            <!-- Right Shoe -->
+            <a-sphere   color="red"
+                        position="-0.35 10.5 -0.65"
+                        radius="0.1"
+                        phi-length="180"
+                        theta-length="90">
+            </a-sphere>
+            <a-cylinder color="blue"
+                        position="-0.35 10.5 -0.75"
+                        radius="0.1"
+                        height="0.2"
+                        rotation="-90 0 0 ">
+            </a-cylinder>
+            <a-cylinder color="green"
+                        position="-0.35 10.5 -0.85"
+                        radius="0.1"
+                        height="0.3"
+                        rotation="0 0 0 ">
+            </a-cylinder> 
+            
+            <a-cylinder radius="0.1"
+                        position="-1 11 -1.8">
+                        <a-plane class="clickable"
+                                 checkpoint="offset: 0 0 -10"
+                                 position="0.4 0 0.2"   
+                                 rotation="0 0 0"
+                                 event-set__3="_event: mouseenter;_target: #hud; text.value: Buy; text.color: #000"
+                                 event-set__4="_event: mouseleave;_target: #hud; text.value: ">
+                        </a-plane>    
+    
+            </a-cylinder>
+            
+            <a-cylinder radius="0.1"
+                        position="-1.8 11 -0.8">
+                        <a-plane class="clickable"
+                                 checkpoint="offset:-10 0 0"
+                                 position="0.3 0 0.2"   
+                                 rotation="0 90 0"
+                                 event-set__5="_event: mouseenter;_target: #hud; text.value: Sell; text.color: #000"
+                                 event-set__6="_event: mouseleave;_target: #hud; text.value: ">
+                        </a-plane>    
+            </a-cylinder>
+            
 
             <!-- Lights -->
             <a-entity light="type: ambient; color: #FAF"></a-entity>
             <a-entity light="type: directional; color: #e1fffc; intensity: 0.5" position="-0.5 1.5 1"></a-entity>
             
             <!-- Camera -->
-            <a-entity   camera="user-height:1.6"
+            <a-entity   id="user"
+                        camera="user-height:1.6"
                         wasd-controls="acceleration:5; easing:1;"
                         universal-controls="movementControls: checkpoint;"
                         checkpoint-controls="mode: animate; animateSpeed: 3.0;">
