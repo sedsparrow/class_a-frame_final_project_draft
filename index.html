@@ -53,6 +53,16 @@
                               rotation="0 90 0">
                     </a-entity>
             </a-entity>
+            <!-- Test Box -->
+            <a-box  class="clickable"
+                    checkpoint="offset:4 10 4"
+                    position="-4 1 -4"
+                    height="2"
+                    width="2"
+                    depth="2"
+                    event-set__1="_event: mouseenter;_target: #hud; text.value: Fly With Me; text.color: #000"
+                    event-set__2="_event: mouseleave;_target: #hud; text.value: ">
+            </a-box>
             <!-- Second Room -->
             <a-entity>
                 <!-- Second Platform -->
@@ -91,17 +101,6 @@
                             position="0 20 0">
                 </a-plane>
             </a-entity>
-            
-            <!-- Test Box -->
-            <a-box  class="clickable"
-                    checkpoint="offset:4 10 4"
-                    position="-4 1 -4"
-                    height="2"
-                    width="2"
-                    depth="2"
-                    event-set__1="_event: mouseenter;_target: #hud; text.value: Fly With Me; text.color: #000"
-                    event-set__2="_event: mouseleave;_target: #hud; text.value: ">
-            </a-box>
             <!-- Shoes Display -->
             <a-cylinder  position="-1 10 -1"
                          height="1"
@@ -169,6 +168,82 @@
                                  event-set__6="_event: mouseleave;_target: #hud; text.value: ">
                         </a-plane>    
             </a-cylinder>
+            <!-- Buy Room -->
+            <a-entity>
+            <!-- Third Platform -->
+                <a-plane    mixin="indigo square solid"   
+                            height="10" 
+                            width="10" 
+                            rotation="-90 0 0"
+                            color="#5B5E97"
+                            position="0 10 -10">
+                </a-plane>
+            <!-- Third Room Walls -->
+                <a-entity   id="#third-north-wall"
+                            mixin="indigo square solid"
+                            position="0 15 -15">
+                </a-entity>            
+                <a-entity   id="#third-south-wall"
+                            mixin="indigo square solid"
+                            position="0 15 -5">
+                </a-entity>            
+                <a-entity   id="#third-east-wall"
+                            mixin="indigo square solid"
+                            position="5 15 -10"
+                            rotation="0 90 0">
+                </a-entity>            
+                <a-entity   id="#third-west-wall"
+                            mixin="indigo square solid"
+                            position="-5 15 -10"
+                            rotation="0 90 0">
+                </a-entity>
+                <!-- Third Room Ceiling -->
+                <a-plane    mixin="indigo square solid"   
+                            height="10" 
+                            width="10" 
+                            rotation="-90 0 0"
+                            color="#5B5E97"
+                            position="0 20 -10">
+                </a-plane>
+            </a-entity>
+            <!-- Sell Room -->
+            <a-entity>
+                <!-- Fourth Platform -->
+                <a-plane    mixin="indigo square solid"   
+                            height="10" 
+                            width="10" 
+                            rotation="-90 0 0"
+                            color="#5B5E97"
+                            position="-10 10 0">
+                </a-plane>
+                <!-- Fourth Room Walls -->
+                <a-entity   id="#fourth-north-wall"
+                            mixin="indigo square solid"
+                            position="-10 15 -5">
+                </a-entity>            
+                <a-entity   id="#fourth-south-wall"
+                            mixin="indigo square solid"
+                            position="-10 15 5">
+                </a-entity>            
+                <a-entity   id="#fourth-east-wall"
+                            mixin="indigo square solid"
+                            position="5 15 0"
+                            rotation="0 90 0">
+                </a-entity>            
+                <a-entity   id="#fourth-west-wall"
+                            mixin="indigo square solid"
+                            position="-15 15 0"
+                            rotation="0 90 0">
+                </a-entity>
+                <!-- Fourth Room Ceiling -->
+                <a-plane    mixin="indigo square solid"   
+                            height="10" 
+                            width="10" 
+                            rotation="-90 0 0"
+                            color="#5B5E97"
+                            position="-10 20 0">
+                </a-plane>
+            </a-entity>
             
 
             <!-- Lights -->
@@ -185,8 +260,8 @@
                 <a-entity   raycaster="objects: .clickable"
                             cursor="fuse: true; fuseTimeout: 2000;"
                             geometry="primitive: ring; radiusInner: 0.017; radiusOuter: 0.025;"
-                            position="0 0 -1.5"
-                            material="color: #ccc; shader: flat">
+                            position="0 0 -0.5"
+                            material="color: #C1C; shader: flat">
                     <!-- Animation When Clicking -->
                     <a-animation    begin="cursor-fusing"
                                     easing="ease-in" 
@@ -200,7 +275,7 @@
                 <!-- Heads Up Text -->
                 <a-entity   id="hud"
                             text="color: #000,value: "
-                            position="0 0 -1.5">            
+                            position="0 0 -1">            
                 </a-entity>
             </a-entity>
             
