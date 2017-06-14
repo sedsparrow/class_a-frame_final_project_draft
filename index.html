@@ -5,7 +5,6 @@
         <script src="js/aframe-v0.5.0.js"></script>
         <script src="js/aframe-extras.js"></script>
         <script src="js/aframe-event-set-component.js"></script>
-        <!-- <script src="js/aframe-look-at-component.js"></script> -->
     </head>
     
     <body>
@@ -20,6 +19,8 @@
                 <a-asset-item id="coffin" src="obj/model.dae"></a-asset-item>
                 <a-asset-item id="xmas-obj" src="obj/pinetree.obj"></a-asset-item>
                 <a-asset-item id="xmas-mtl" src="obj/pinetree.mtl"></a-asset-item>
+                <a-asset-item id="cherry-obj" src="obj/cherrytree.obj"></a-asset-item>
+                <a-asset-item id="cherry-mtl" src="obj/cherrytree.mtl"></a-asset-item>
     
                 <a-mixin id="indigo" material="color: #5B5E97"></a-mixin>
                 <a-mixin id="square" geometry="height: 10; width: 10; depth: 0.1;"></a-mixin>
@@ -110,49 +111,57 @@
                 </a-plane>
             </a-entity>
             <!-- Shoes Display -->
-            <a-cylinder  position="-1 10 -1"
+            <a-cylinder class="clickable" 
+                        position="-1 10 -1"
                          height="1"
-                         radius="1">            
+                         radius="1"
+                                            event-set__1="_event: mouseenter;_target: #hud; text.value: For Sale Baby Shoes Never Worn; text.color: #000"
+                    event-set__2="_event: mouseleave;_target: #hud; text.value: "
+>                        
             </a-cylinder>
+            <a-entity>
             <!-- Left Shoe -->
-            <a-sphere   color="red"
+            <a-sphere   color="pink"
                         position="-0.6 10.5 -0.4"
                         radius="0.1"
                         phi-length="180"
-                        theta-length="90">
+                        theta-length="90"
+>
             </a-sphere>
-            <a-cylinder color="blue"
+            <a-cylinder color="pink"
                         position="-0.6 10.5 -0.5"
                         radius="0.1"
                         height="0.2"
                         rotation="-90 0 0 ">
             </a-cylinder>
-            <a-cylinder color="green"
+            <a-cylinder color="pink"
                         position="-0.6 10.5 -0.6"
                         radius="0.1"
                         height="0.3"
-                        rotation="0 0 0 ">
+                        rotation="0 0 0 "
+>
             </a-cylinder>   
             
             <!-- Right Shoe -->
-            <a-sphere   color="red"
+            <a-sphere   color="pink"
                         position="-0.35 10.5 -0.65"
                         radius="0.1"
                         phi-length="180"
                         theta-length="90">
             </a-sphere>
-            <a-cylinder color="blue"
+            <a-cylinder color="pink"
                         position="-0.35 10.5 -0.75"
                         radius="0.1"
                         height="0.2"
                         rotation="-90 0 0 ">
             </a-cylinder>
-            <a-cylinder color="green"
+            <a-cylinder color="pink"
                         position="-0.35 10.5 -0.85"
                         radius="0.1"
                         height="0.3"
                         rotation="0 0 0 ">
             </a-cylinder> 
+            </a-entity>
             
             <a-plane class="clickable"
                                  checkpoint="offset: 0 0 -10"
@@ -210,15 +219,18 @@
                 <a-cylinder  position="-1.5 10 -12"
                             height="1"
                             radius="1">
-                    <a-entity collada-model="#coffin"
+                    <a-entity class="clickable"
+                              collada-model="#coffin"
                               position="0 0.5 0"
-                              scale="0.5 0.5 0.5"></a-entity>
+                              scale="0.5 0.5 0.5"
+                              event-set__111="_event: mouseenter;_target: #hud; text.value: The smallest coffins are the heaviest; text.color: #000"
+                              event-set__222="_event: mouseleave;_target: #hud; text.value: "></a-entity>
                 </a-cylinder>
                 <a-plane class="clickable"
-                                 checkpoint="offset: 0 0 -10"
+                                 checkpoint="offset: 0 0 -7"
                                  position="-1.2 11 -12.7"   
                                  rotation="0 0 0"
-                                 event-set__3="_event: mouseenter;_target: #hud; text.value: Sell; text.color: #000"
+                                 event-set__3="_event: mouseenter;_target: #hud; text.value: Remember Him; text.color: #000"
                                  event-set__4="_event: mouseleave;_target: #hud; text.value: ">
                 </a-plane>    
     
@@ -226,7 +238,7 @@
                                  checkpoint="offset:-9 0 0"
                                  position="-2.2 11 -11.7"   
                                  rotation="0 90 0"
-                                 event-set__5="_event: mouseenter;_target: #hud; text.value: Buy; text.color: #000"
+                                 event-set__5="_event: mouseenter;_target: #hud; text.value: Remember Her; text.color: #000"
                                  event-set__6="_event: mouseleave;_target: #hud; text.value: ">
                 </a-plane>
             </a-entity>
@@ -270,15 +282,18 @@
                 <a-cylinder  position="-12 10 -1.5"
                             height="1"
                             radius="1">
-                            <a-entity   obj-model="obj: #bottle-obj; mtl: #bottle-mtl"
-                                        position="0 0.5 0">
+                            <a-entity class="clickable"  
+                                      obj-model="obj: #bottle-obj; mtl: #bottle-mtl"
+                                        position="0 0.5 0"
+                                        event-set__1111="_event: mouseenter;_target: #hud; text.value: You threw things. Words hurt more.; text.color: #000"
+                                        event-set__2222="_event: mouseleave;_target: #hud; text.value: ">>
                             </a-entity>
                 </a-cylinder>
             <a-plane class="clickable"
                                  checkpoint="offset: 0 0 -9"
                                  position="-11.7 11 -2.2"   
                                  rotation="0 0 0"
-                                 event-set__3="_event: mouseenter;_target: #hud; text.value: Sell; text.color: #000"
+                                 event-set__3="_event: mouseenter;_target: #hud; text.value: Forgive Her; text.color: #000"
                                  event-set__4="_event: mouseleave;_target: #hud; text.value: ">
             </a-plane>    
     
@@ -286,7 +301,7 @@
                                  checkpoint="offset:-10 0 0"
                                  position="-12.7 11 -1.2"   
                                  rotation="0 90 0"
-                                 event-set__5="_event: mouseenter;_target: #hud; text.value: Buy; text.color: #000"
+                                 event-set__5="_event: mouseenter;_target: #hud; text.value: Forgive Him; text.color: #000"
                                  event-set__6="_event: mouseleave;_target: #hud; text.value: ">
             </a-plane>
             </a-entity>
@@ -330,10 +345,15 @@
                 <a-cylinder position="-22 10 -1.5"
                             height="1"
                             radius="1"> 
-                            <a-entity   obj-model="obj: #crutch-obj; mtl: #crutch-mtl"
+                            <a-entity class="clickable"  
+                                      obj-model="obj: #crutch-obj; mtl: #crutch-mtl"
                                         scale="0.01 0.01 0.01"
-                                        position="0 0.5 0">
+                                        position="0 0.5 0"
+                                        event-set__55="_event: mouseenter;_target: #hud; text.value: Son born handicapped. Made Me better.; text.color: #000"
+                                        event-set__66="_event: mouseleave;_target: #hud; text.value: "
+                                      >
                             </a-entity> 
+
                 </a-cylinder>
             </a-entity>
             <!-- XMAS -->
@@ -376,9 +396,13 @@
                 <a-cylinder  position="-1.5 10 -22"
                             height="1"
                             radius="1">
-                            <a-entity   obj-model="obj: #xmas-obj; mtl: #xmas-mtl"
+                            <a-entity class="clickable"  
+                                      obj-model="obj: #xmas-obj; mtl: #xmas-mtl"
                                         scale="0.5 0.5 0.5"
-                                        position="0 1.5 0">
+                                        position="0 1.5 0"
+                                        event-set__555="_event: mouseenter;_target: #hud; text.value: When you died, Christmas died too.; text.color: #000"
+                                        event-set__666="_event: mouseleave;_target: #hud; text.value: "
+                                      >
                             </a-entity>
                 </a-cylinder>
             </a-entity>
@@ -421,7 +445,15 @@
                 </a-plane>
                 <a-cylinder  position="-12 10 -12"
                             height="1"
-                            radius="1">            
+                            radius="1"
+                            event-set__5="_event: mouseenter;_target: #hud; text.value: She blamed herself. Wallowed Rejuvenated Forgave ; text.color: #000"
+                            event-set__6="_event: mouseleave;_target: #hud; text.value: ">
+                            <a-entity class="clickable"  
+                                      obj-model="obj: #cherry-obj; mtl: #cherry-mtl"
+                                        scale="0.2 0.2 0.2"
+                                        position="0 0.75 0"
+>
+                            </a-entity> 
                 </a-cylinder>
             </a-entity>
             <!-- Lights -->
@@ -452,8 +484,8 @@
                 </a-entity>
                 <!-- Heads Up Text -->
                 <a-entity   id="hud"
-                            text="color: #000,value: "
-                            position="0 0 -1">            
+                            text="color: #000, value: "
+                            position="0 0 -0.75">            
                 </a-entity>
             </a-entity>
             
