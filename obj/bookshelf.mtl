@@ -1,0 +1,79 @@
+# Blender MTL File: 'None'
+# Material Count: 7
+
+newmtl Material_#2
+Ns 19.607843
+Ka 1.000000 1.000000 1.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd models\\Texture Folder\\Dark-Wood2.jpg
+
+newmtl Material_#27
+Ns 19.607843
+Ka 1.000000 1.000000 1.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd models\\Texture Folder\\Classic-Red-Book-Cover-Texture.jpg
+
+newmtl Material_#28
+Ns 19.607843
+Ka 1.000000 1.000000 1.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd models\\Texture Folder\\depositphotos_14891085-stock-photo-papyrus-paper-background.jpg
+
+newmtl Material_#29
+Ns 19.607843
+Ka 1.000000 1.000000 1.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd models\\Texture Folder\\1999464-background-from-black-old-book-cover.jpg
+
+newmtl Material_#3
+Ns 19.607843
+Ka 1.000000 1.000000 1.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd models\\Texture Folder\\old_paper_texture_by_furiion52-d5061at.jpg
+
+newmtl Material_#30
+Ns 19.607843
+Ka 1.000000 1.000000 1.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd models\\Texture Folder\\worn_book_4_back_by_sputt.jpg
+
+newmtl Material_#31
+Ns 19.607843
+Ka 1.000000 1.000000 1.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd models\\Texture Folder\\vintage-book-cover-textures-4.jpg

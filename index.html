@@ -9,10 +9,18 @@
     </head>
     
     <body>
-        <a-scene>
+        <a-scene stats>
             <!-- Assets/Mixins -->
-            <a-assets>
-
+            <a-assets>           
+                <a-asset-item id="crutch-obj" src="obj/crutch.obj"></a-asset-item>
+                <a-asset-item id="crutch-mtl" src="obj/crutch.mtl"></a-asset-item>       <a-asset-item id="bookshelf-obj" src="obj/bookshelf.obj"></a-asset-item>
+                <a-asset-item id="bookshelf-mtl" src="obj/bookshelf.mtl"></a-asset-item>
+                <a-asset-item id="bottle-obj" src="obj/brokenbottle.obj"></a-asset-item>
+                <a-asset-item id="bottle-mtl" src="obj/brokenbottle.mtl"></a-asset-item>
+                <a-asset-item id="coffin" src="obj/model.dae"></a-asset-item>
+                <a-asset-item id="xmas-obj" src="obj/pinetree.obj"></a-asset-item>
+                <a-asset-item id="xmas-mtl" src="obj/pinetree.mtl"></a-asset-item>
+    
                 <a-mixin id="indigo" material="color: #5B5E97"></a-mixin>
                 <a-mixin id="square" geometry="height: 10; width: 10; depth: 0.1;"></a-mixin>
                 <a-mixin id="floor" rotation="-90 0 0"></a-mixin>
@@ -146,29 +154,23 @@
                         rotation="0 0 0 ">
             </a-cylinder> 
             
-            <a-cylinder radius="0.1"
-                        position="-1 11 -1.8">
-                        <a-plane class="clickable"
+            <a-plane class="clickable"
                                  checkpoint="offset: 0 0 -10"
-                                 position="0.4 0 0.2"   
+                                 position="-0.7 11 -1.7"   
                                  rotation="0 0 0"
-                                 event-set__3="_event: mouseenter;_target: #hud; text.value: Buy; text.color: #000"
+                                 event-set__3="_event: mouseenter;_target: #hud; text.value: Sell; text.color: #000"
                                  event-set__4="_event: mouseleave;_target: #hud; text.value: ">
-                        </a-plane>    
+            </a-plane>    
     
-            </a-cylinder>
-            
-            <a-cylinder radius="0.1"
-                        position="-1.8 11 -0.8">
-                        <a-plane class="clickable"
+            <a-plane class="clickable"
                                  checkpoint="offset:-10 0 0"
-                                 position="0.3 0 0.2"   
+                                 position="-1.7 11 -0.7"   
                                  rotation="0 90 0"
-                                 event-set__5="_event: mouseenter;_target: #hud; text.value: Sell; text.color: #000"
+                                 event-set__5="_event: mouseenter;_target: #hud; text.value: Buy; text.color: #000"
                                  event-set__6="_event: mouseleave;_target: #hud; text.value: ">
-                        </a-plane>    
-            </a-cylinder>
-            <!-- Buy Room -->
+            </a-plane>    
+
+            <!-- Coffin -->
             <a-entity>
             <!-- Third Platform -->
                 <a-plane    mixin="indigo square solid"   
@@ -205,8 +207,30 @@
                             color="#5B5E97"
                             position="0 20 -10">
                 </a-plane>
+                <a-cylinder  position="-1.5 10 -12"
+                            height="1"
+                            radius="1">
+                    <a-entity collada-model="#coffin"
+                              position="0 0.5 0"
+                              scale="0.5 0.5 0.5"></a-entity>
+                </a-cylinder>
+                <a-plane class="clickable"
+                                 checkpoint="offset: 0 0 -10"
+                                 position="-1.2 11 -12.7"   
+                                 rotation="0 0 0"
+                                 event-set__3="_event: mouseenter;_target: #hud; text.value: Sell; text.color: #000"
+                                 event-set__4="_event: mouseleave;_target: #hud; text.value: ">
+                </a-plane>    
+    
+                <a-plane class="clickable"
+                                 checkpoint="offset:-9 0 0"
+                                 position="-2.2 11 -11.7"   
+                                 rotation="0 90 0"
+                                 event-set__5="_event: mouseenter;_target: #hud; text.value: Buy; text.color: #000"
+                                 event-set__6="_event: mouseleave;_target: #hud; text.value: ">
+                </a-plane>
             </a-entity>
-            <!-- Sell Room -->
+            <!-- Threw -->
             <a-entity>
                 <!-- Fourth Platform -->
                 <a-plane    mixin="indigo square solid"   
@@ -227,7 +251,7 @@
                 </a-entity>            
                 <a-entity   id="#fourth-east-wall"
                             mixin="indigo square solid"
-                            position="5 15 0"
+                            position="-5 15 0"
                             rotation="0 90 0">
                 </a-entity>            
                 <a-entity   id="#fourth-west-wall"
@@ -243,9 +267,163 @@
                             color="#5B5E97"
                             position="-10 20 0">
                 </a-plane>
+                <a-cylinder  position="-12 10 -1.5"
+                            height="1"
+                            radius="1">
+                            <a-entity   obj-model="obj: #bottle-obj; mtl: #bottle-mtl"
+                                        position="0 0.5 0">
+                            </a-entity>
+                </a-cylinder>
+            <a-plane class="clickable"
+                                 checkpoint="offset: 0 0 -9"
+                                 position="-11.7 11 -2.2"   
+                                 rotation="0 0 0"
+                                 event-set__3="_event: mouseenter;_target: #hud; text.value: Sell; text.color: #000"
+                                 event-set__4="_event: mouseleave;_target: #hud; text.value: ">
+            </a-plane>    
+    
+            <a-plane class="clickable"
+                                 checkpoint="offset:-10 0 0"
+                                 position="-12.7 11 -1.2"   
+                                 rotation="0 90 0"
+                                 event-set__5="_event: mouseenter;_target: #hud; text.value: Buy; text.color: #000"
+                                 event-set__6="_event: mouseleave;_target: #hud; text.value: ">
+            </a-plane>
             </a-entity>
-            
-
+            <!-- Handicap Throw Things -->
+            <a-entity>
+                <!-- Fifth Platform -->
+                <a-plane    mixin="indigo square solid"   
+                            height="10" 
+                            width="10" 
+                            rotation="-90 0 0"
+                            color="#5B5E97"
+                            position="-20 10 0">
+                </a-plane>
+                <!-- Fifth Room Walls -->
+                <a-entity   id="#fifth-north-wall"
+                            mixin="indigo square solid"
+                            position="-20 15 -5">
+                </a-entity>            
+                <a-entity   id="#fifth-south-wall"
+                            mixin="indigo square solid"
+                            position="-20 15 5">
+                </a-entity>            
+                <a-entity   id="#fifth-east-wall"
+                            mixin="indigo square solid"
+                            position="-15 15 0"
+                            rotation="0 90 0">
+                </a-entity>            
+                <a-entity   id="#fifth-west-wall"
+                            mixin="indigo square solid"
+                            position="-25 15 0"
+                            rotation="0 90 0">
+                </a-entity>
+                <!-- Fifth Room Ceiling -->
+                <a-plane    mixin="indigo square solid"   
+                            height="10" 
+                            width="10" 
+                            rotation="-90 0 0"
+                            color="#5B5E97"
+                            position="-20 20 0">
+                </a-plane>
+                <a-cylinder position="-22 10 -1.5"
+                            height="1"
+                            radius="1"> 
+                            <a-entity   obj-model="obj: #crutch-obj; mtl: #crutch-mtl"
+                                        scale="0.01 0.01 0.01"
+                                        position="0 0.5 0">
+                            </a-entity> 
+                </a-cylinder>
+            </a-entity>
+            <!-- XMAS -->
+            <a-entity>
+            <!-- Sixth Platform -->
+                <a-plane    mixin="indigo square solid"   
+                            height="10" 
+                            width="10" 
+                            rotation="-90 0 0"
+                            color="#5B5E97"
+                            position="0 10 -20">
+                </a-plane>
+            <!-- Sixth Room Walls -->
+                <a-entity   id="#sixth-north-wall"
+                            mixin="indigo square solid"
+                            position="0 15 -25">
+                </a-entity>            
+                <a-entity   id="#sixth-south-wall"
+                            mixin="indigo square solid"
+                            position="0 15 -15">
+                </a-entity>            
+                <a-entity   id="#sixth-east-wall"
+                            mixin="indigo square solid"
+                            position="5 15 -20"
+                            rotation="0 90 0">
+                </a-entity>            
+                <a-entity   id="#sixth-west-wall"
+                            mixin="indigo square solid"
+                            position="-5 15 -20"
+                            rotation="0 90 0">
+                </a-entity>
+                <!-- Sixth Room Ceiling -->
+                <a-plane    mixin="indigo square solid"   
+                            height="10" 
+                            width="10" 
+                            rotation="-90 0 0"
+                            color="#5B5E97"
+                            position="0 20 -20">
+                </a-plane>
+                <a-cylinder  position="-1.5 10 -22"
+                            height="1"
+                            radius="1">
+                            <a-entity   obj-model="obj: #xmas-obj; mtl: #xmas-mtl"
+                                        scale="0.5 0.5 0.5"
+                                        position="0 1.5 0">
+                            </a-entity>
+                </a-cylinder>
+            </a-entity>
+            <!-- Forgive Room -->
+            <a-entity>
+                <!-- Seventh Platform -->
+                <a-plane    mixin="indigo square solid"   
+                            height="10" 
+                            width="10" 
+                            rotation="-90 0 0"
+                            color="#5B5E97"
+                            position="-10 10 -10">
+                </a-plane>
+                <!-- Seventh Room Walls -->
+                <a-entity   id="#seventh-north-wall"
+                            mixin="indigo square solid"
+                            position="-10 15 -15">
+                </a-entity>            
+                <a-entity   id="#seventh-south-wall"
+                            mixin="indigo square solid"
+                            position="-10 15 -5">
+                </a-entity>            
+                <a-entity   id="#seventh-east-wall"
+                            mixin="indigo square solid"
+                            position="-5 15 -10"
+                            rotation="0 90 0">
+                </a-entity>            
+                <a-entity   id="#seventh-west-wall"
+                            mixin="indigo square solid"
+                            position="-15 15 -10"
+                            rotation="0 90 0">
+                </a-entity>
+                <!-- Seventh Room Ceiling -->
+                <a-plane    mixin="indigo square solid"   
+                            height="10" 
+                            width="10" 
+                            rotation="-90 0 0"
+                            color="#5B5E97"
+                            position="-10 20 -10">
+                </a-plane>
+                <a-cylinder  position="-12 10 -12"
+                            height="1"
+                            radius="1">            
+                </a-cylinder>
+            </a-entity>
             <!-- Lights -->
             <a-entity light="type: ambient; color: #FAF"></a-entity>
             <a-entity light="type: directional; color: #e1fffc; intensity: 0.5" position="-0.5 1.5 1"></a-entity>
